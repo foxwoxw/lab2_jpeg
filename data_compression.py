@@ -66,6 +66,8 @@ def calc_freq_dc(vector):
 
 def build_huffman_tree(symb_freq):
     heap = [[weight, [symbol, ""]] for symbol, weight in symb_freq.items()]
+    if len(heap) == 1:
+        heap[0][1][1] = '0'
     heapq.heapify(heap)
     while len(heap) > 1:
         lo = heapq.heappop(heap)
